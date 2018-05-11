@@ -3,12 +3,10 @@ package com.github.jk1.license.reader
 import com.github.jk1.license.ConfigurationData
 import com.github.jk1.license.LicenseReportPlugin
 import com.github.jk1.license.task.ReportTask
-import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.ResolvedDependency
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
-
 
 class ConfigurationReader {
 
@@ -16,8 +14,8 @@ class ConfigurationReader {
     private ModuleReader moduleReader = new ModuleReader()
     private LicenseReportPlugin.LicenseReportExtension config
 
-    ConfigurationData read(Project project, Configuration configuration) {
-        config = project.licenseReport
+    ConfigurationData read(LicenseReportPlugin.LicenseReportExtension config, Configuration configuration) {
+        this.config = config
         LOGGER.info("Processing configuration [$configuration], configuration will be resolved")
         configuration.resolvedConfiguration // force configuration resolution
         ConfigurationData data = new ConfigurationData()

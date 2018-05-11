@@ -5,7 +5,7 @@ import org.gradle.api.Project
 
 @Canonical
 class ProjectData {
-    Project project
+    Set<Project> projects
     Set<ConfigurationData> configurations = new HashSet<ConfigurationData>()
     List<ImportedModuleBundle> importedModules = new ArrayList<ImportedModuleBundle>()
     Set<ModuleData> getAllDependencies() {
